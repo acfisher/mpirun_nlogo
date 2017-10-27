@@ -18,7 +18,7 @@ JAVA=$HOMEDIR/jre1.8.0_131/bin/java
 LOGO=$HOMEDIR/netlogo-5.2.1/NetLogo.jar
 
 #The filename of the model file (assuming it is in your RUNDIR)
-MODEL=ZW-Model-2017-08-01_smallSetForAaron.nlogo
+MODEL=MyModelWithBehaviorSpaces.nlogo
 
 #The mpirun command provided by your cluster admin
 MPIRUN=mpirun
