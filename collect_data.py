@@ -9,7 +9,7 @@ for fname in data_files:
         all_lines += fin.readlines()
 all_lines.sort()
 
-with open("headers.txt", "r") as fin:
+with open("headers.dat", "r") as fin:
     headers = fin.readlines()
 
 for header in headers:
@@ -17,9 +17,9 @@ for header in headers:
     for i in range(len(all_lines)):
         line_exp = all_lines[i].partition(",")[0]
         if header_exp == line_exp:
-            all_lines.insert(header, i)
+            all_lines.insert(i, header)
             if i > 0:
-                all_lines.insert("", i)
+                all_lines.insert(i, "\n")
             break 
 
 with open("alldata.csv", "w") as fout:
