@@ -6,7 +6,7 @@ Divides up nlogo behaviorspaces among mpi processes and runs them in parallel.
 
 Author : Aaron Fisher <funktektronic@gmail.com>
 
-License : GNU GLP 3 ; See LICENSE.txt for details.
+License : GNU GPL 3 ; See LICENSE.txt for details.
 
 
 About
@@ -17,9 +17,32 @@ This script make it possible to run large behaviorspace experiments on MPI clust
 Requirements
 ------------
 
-This software required an MPI enabled cluster with some version of mpirun.  It has been tested with openmpi.  It also requires python 2.7 or higher with the mpi4py library installed.  Talk to your system administrator if this is not the case.
+This software requires:
+* An MPI enabled cluster with some version of mpirun.  It has been tested with openmpi.  
+* Python 2.7 or higher with the mpi4py library installed.  
+* NLOGO (easily installed in your home directory)
+* A version of java that can run your version of NLOGO (easily installed in your home directory)
+
+Talk to your system administrator if your system does not meet these requirements.
 
 Basic usage
 ~~~~~~~~~~~
+Start by downloading and unzipping your required version of NLOGO in your home directory:
+wget http://ccl.northwestern.edu/netlogo/5.3.1/NetLogo-5.3.1-64.tgz
+tar xvzf NetLogo-5.3.1-64.tgz
 
-I'll add this later.
+Start by cloning or unpacking your install of mpirun_nlogo:
+git clone https://github.com/acfisher/mpirun_nlogo.git
+
+Make a directory in your home directory to hold your parameter study:
+mkdir param_study
+
+If you are using the PBS batch system for your cluster (most clusters) copy the nlogo.pbs file to the param_study directory:
+cp NetLogo-5.3.1/nlogo.pbs param_study/NLOGO jar file for your 
+
+Copy the collect_data.py file to the param study directory:
+cp NetLogo5.3.1/collect_data.py param_study/
+
+Edit the nlogo.pbs file in the param study directory.  Add any module commands that may be necessisary for your cluster.  Edit the paths for your base/home directory, param study location, nlogo jar file for your netlogo install, command to launch java, mpirun command, and mpirun_nlogo.py location.
+
+I'll add to this later.
